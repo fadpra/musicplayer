@@ -1,0 +1,22 @@
+[
+    {
+        "name" : "Lighters",
+        "artists" : ["Eminem","Bruno Mars"],
+        "file" : "Bad Meets Evil - Lighters ft. Bruno Mars.mp3"
+    },
+    {
+        "name" : "Perfect",
+        "artists" : ["Ed Sheeran"],
+        "file" : "Ed Sheeran - Perfect (Official Music Video).mp3"
+    },
+    {
+        "name" : "Photograph",
+        "artists" : ["Ed Sheeran"],
+        "file" : "Ed Sheeran - Photograph (Official Music Video).mp3"
+    },
+    {
+        "name" : "You Are The Reason",
+        "artists" : ["Calum Scott"],
+        "file" : "Calum Scott - You Are The Reason (Official Video).mp3"
+    }
+]

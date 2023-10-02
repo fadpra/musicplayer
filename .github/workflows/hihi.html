@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Embed</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Enter video title">
+    <button onclick="searchVideo()">Search</button>
+    <div id="videoContainer"></div>
+
+    <script>
+        // Your YouTube API key (replace with your actual key)
+        const apiKey = 'YOUR_API_KEY';
+
+        // Function to search for videos based on the title
+        function searchVideo() {
+            const searchInput = document.getElementById('searchInput').value;
+            const videoContainer = document.getElementById('videoContainer');
+
+            // Clear previous results
+            videoContainer.innerHTML = '';
+
+            // Make a request to the YouTube Data API
+            fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${searchInput}&type=video&part=snippet`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items.length > 0) {
+                        // Get the first video from the search results
+                        const video = data.items[0];
+
+                        // Extract video title and video ID
+                        const videoTitle = video.snippet.title;
+                        const videoId = video.id.videoId;
+
+                        // Create an iframe element to embed the video
+                        const iframe = document.createElement('iframe');
+                        iframe.width = '560';
+                        iframe.height = '315';
+                        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                        iframe.frameBorder = '0';
+                        iframe.allowFullscreen = true;
+
+                        // Display the video title
+                        const titleElement = document.createElement('h3');
+                        titleElement.textContent = videoTitle;
+
+                        // Append the iframe and title to the video container
+                        videoContainer.appendChild(titleElement);
+                        videoContainer.appendChild(iframe);
+                    } else {
+                        videoContainer.textContent = 'No matching videos found.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
