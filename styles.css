@@ -4,12 +4,13 @@
 }
 
 body {
-    background-color: skyblue;
+    background-color: black;
     font-family: arial;
+    color:white
 }
 
 .audio-player {
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255,255,255,.5) transparent;
     padding: 10px;
     margin: auto;
     width: 50%;
@@ -18,6 +19,9 @@ body {
 
 .player {
     background-color: azure transparent;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 .button {
     background-color: aquamarine transparent;
@@ -30,17 +34,21 @@ body {
 }
 
 #seek-bar {
-    width: 88.5%;
+    margin: 0 auto; /* Center the seek bar horizontally */
+    width: 100%;
+}
+
+.timer {
+    margin: auto;
 }
 
 .audio-player button {
     padding: 10px;
-    background-color: aqua;
+    background-color: white;
     border: none;
     transition: 0.25s ease-in-out;
     cursor: pointer;
     font-size: 20px;
-    border-radius: 50%;
 }
 
 .audio-player button:hover {
@@ -48,12 +56,12 @@ body {
 }
 
 #songlist {
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255,255,255,.5) transparent;
     width: fit-content;
     padding: 10px;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 #songlist h1 {
@@ -62,7 +70,7 @@ body {
 }
 
 .song {
-    background-color: lightblue;
+    background-color: white;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -73,21 +81,30 @@ body {
 .h3 {
     margin: 0px 5px;
     transition: 0.25s ease-in-out;
+    color: black;
+}
+
+#artist,#divide {
+    display: block;
 }
 
 .song:hover {
-    background-color: darkblue;
+    opacity: 0.5;
     cursor: pointer;
 }
 
-.song:hover .h3 {
-    color: white
-}
-
 .active {
-    background-color: darkblue;
-    color:white;
+    opacity: 0.5;
     display: flex;
     align-items: center;
     margin: 5px;
+}
+
+@media screen and (max-width:550px){
+    #artist,#divide{
+        display: none;
+    }
+    .audio-player {
+        width: 90%;
+    }
 }
