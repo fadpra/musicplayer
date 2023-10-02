@@ -351,6 +351,10 @@ songArr.forEach(songs => {
     title.classList.add("h3")
     divide.classList.add("h3")
     artist.classList.add("h3")
+
+    title.setAttribute("id","title")
+    divide.setAttribute("id","divide")
+    artist.setAttribute("id","artist")
     
     song.appendChild(title)
     song.appendChild(divide)
@@ -361,7 +365,7 @@ songArr.forEach(songs => {
     song.addEventListener("click", () => {
         audio.src = songs.file
         audio.play()
-        playPause.innerHTML = "||"
+        playPause.innerHTML = "Pause"
         songTitle.innerHTML = songs.title
         songArtist.innerHTML = songs.artist
         songId = songs.id
@@ -418,10 +422,10 @@ function formatTime(timeSeconds){
 playPause.addEventListener("click",() => {
     if(audio.paused){
         audio.play()
-        playPause.innerHTML = "||"
+        playPause.innerHTML = "Pause"
     } else {
         audio.pause()
-        playPause.innerHTML = "▶"
+        playPause.innerHTML = "Play"
     }
 })
 
